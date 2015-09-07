@@ -1,0 +1,21 @@
+{
+  "name": "github-orchestrator",
+  "version": "0.0.0",
+  "description": "Create Labels and Milestones for Multiple repositories",
+  "main": "cli.js",
+  "dependencies": {
+    "github": "^0.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "orchestration",
+    "milestones",
+    "labels"
+  ],
+  "author": "Jimdo GmbH",
+  "license": "MIT"
+}
