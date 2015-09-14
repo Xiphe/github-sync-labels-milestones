@@ -4,7 +4,9 @@
   "description": "Create Labels and Milestones for Multiple repositories",
   "main": "cli.js",
   "dependencies": {
-    "github": "^0.2.4"
+    "github": "^0.2.4",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
