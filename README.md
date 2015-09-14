@@ -1,25 +1,16 @@
-JS dotfiles
------------
+github-orchestrator
+-------------------
 
-Opinionated dotfiles for new JS projects
+Create Labels and Milestones for Multiple repositories
 
-```
-git clone git@github.com:Xiphe/js-dotfiles.git
-cd js-dotfiles
-rm -rf .git
-git init
-git add .
-git commit -m'initiate dotfiles' -m'https://github.com/Xiphe/js-dotfiles'
-cd ..
-mv js-dotfiles my-project-name
-```
+# WIP
 
 LICENSE
 -------
 
 > The MIT License
 > 
-> Copyright (c) 2015 Hannes Diercks
+> Copyright (c) 2015 Jimdo GmbH
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
