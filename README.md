@@ -1,7 +1,7 @@
-github-orchestrator
--------------------
+github-sync-issues-milestones
+-----------------------------
 
-Create Labels and Milestones for Multiple repositories
+Sync Labels and Milestones across Multiple repositories
 
 # WIP
 

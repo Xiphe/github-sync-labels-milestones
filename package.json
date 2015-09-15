@@ -1,10 +1,10 @@
 {
-  "name": "github-orchestrator",
+  "name": "github-sync-issues-milestones",
   "version": "0.0.0",
-  "description": "Create Labels and Milestones for Multiple repositories",
+  "description": "Sync Labels and Milestones across Multiple repositories",
   "main": "./lib/index.js",
   "bin" : {
-    "myapp" : "./cli.js"
+    "github-sync-issues-milestones" : "./cli.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",
@@ -20,6 +20,8 @@
   "keywords": [
     "github",
     "orchestration",
+    "sync",
+    "synchronize",
     "milestones",
     "labels"
   ],
