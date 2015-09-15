@@ -2,40 +2,136 @@
 
 'use strict';
 
-console.log('WIP');
-require('./lib/index')({
-  token: '...',
-  log: console
-}, [{
-  'repositories': [
-    'Xiphe/test'
-  ],
-  'milestones': [
-    {
-      'previousTitles': [
-        '[BG-Area] Internal Release',
-        'hallo'
-      ],
-      'title': 'liufgyiofjopi',
-      'state': 'open',
-      'description': 'Hallo Welt',
-      'due_on': '2015-09-04T23:59:59Z'
-    }, {
-      'title': 'Banana',
-      'state': 'absent'
+var argv = require('minimist')(process.argv.slice(2), {
+  alias: {
+    'token': 't',
+    'config': 'c',
+    'help': 'h',
+    'verbose': 'v',
+    'version': 'V',
+    'silent': 's'
+  }
+});
+var chalk = require('chalk');
+var Q = require('q');
+var path = require('path');
+var _ = require('lodash');
+var CONSTANTS = require('./lib/constants');
+chalk = new chalk.constructor({enabled: argv.color});
+
+function wrt(str) {
+  if (!argv.silent) {
+    process.stdout.write(str, 'utf-8');
+  }
+}
+
+if (argv.version) {
+  wrt(require('./package').version + '\n');
+  return;
+}
+
+if (argv.help) {
+  wrt([
+    '',
+    'Usage:',
+    '',
+    '  ' + chalk.cyan('github-orchestrator') + ' <options>',
+    '',
+    'Options:',
+    '',
+    '  ' + chalk.yellow('-t, --token') + '   [required] github personal access token',
+    '  ' + chalk.yellow('-c, --config') + '  [required] path to config file',
+    '  ' + chalk.yellow('-V, --verbose') + ' make output more verbose',
+    '  ' + chalk.yellow('-s, --silent') + '  oppress output',
+    '  ' + chalk.yellow('-v, --version') + ' output version',
+    '  ' + chalk.yellow('-h, --help') + '    output help message',
+    '  ' + chalk.yellow('--no-color') + '    disable colors',
+    '',
+    chalk.gray('Get a personal access token here: https://github.com/settings/tokens'),
+    chalk.gray('[repo] and [public_repo] scopes need to be activated')
+
+  ].join('\n') + '\n');
+
+  return;
+}
+
+if (!argv.token) {
+  wrt(chalk.red('ERROR: No token provided\n'));
+  process.exit(1);
+}
+
+if (!argv.config) {
+  wrt(chalk.red('ERROR: No config file provided\n'));
+  process.exit(1);
+}
+
+var logs = {};
+function logger(config) {
+  if (!logs[config.type]) {
+    logs[config.type] = {};
+  }
+  if (!logs[config.type][config.state]) {
+    logs[config.type][config.state] = [];
+  }
+  logs[config.type][config.state].push(config);
+}
+logger.verbose = function() {
+  if (argv.verbose) {
+    wrt([].join.call(arguments, ' ') + '\n');
+  }
+};
+
+Q.fcall(function() {
+  return require(path.resolve(__dirname, argv.config));
+}).then(function(config) {
+  return require('./lib/index')({
+    token: argv.token,
+    log: logger
+  }, config);
+}).then(function() {
+  _.forEach(logs, function(states, type) {
+    wrt(chalk.grey(type + ': '));
+    if (argv.verbose) {
+      wrt('\n');
     }
-  ],
-  'labels': [
-    {
-      'previousNames': [
-        'krass'
-      ],
-      'name': 'Hallo',
-      'color': 'ff0000'
+    var str = [];
+    _.forEach(states, function(messages, state) {
+      var color;
+      switch (state) {
+        case CONSTANTS.LOG_TYPE_OK:
+          color = chalk.green;
+          break;
+        case CONSTANTS.LOG_TYPE_DELETE:
+          color = chalk.yellow;
+          break;
+        case CONSTANTS.LOG_TYPE_CREATE:
+          color = chalk.cyan;
+          break;
+        case CONSTANTS.LOG_TYPE_UPDATE:
+          color = chalk.magenta;
+          break;
+      }
+      if (argv.verbose) {
+        messages.forEach(function(message) {
+          wrt('  ' + color(state) + ': ' + message.user + '/' +
+            message.repo + ' - ' + message.title + '\n');
+        });
+      } else {
+        str.push(color(messages.length + ' ' + state));
+      }
+    });
+    if (str.length) {
+      wrt(str.join(' ') + '\n');
     }
-  ]
-}]).then(function() {
-  console.log('ok');
-}, function(err) {
-  console.log('error', err);
+  });
+
+  if (argv.verbose) {
+    wrt('\n' + chalk.green('DONE') + '\n');
+  }
+}).catch(function(err) {
+  wrt(chalk.red(err) + '\n');
+  if (argv.verbose) {
+    wrt(err.stack + '\n');
+  }
+  process.exit(1);
 });

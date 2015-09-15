@@ -2,10 +2,15 @@
   "name": "github-orchestrator",
   "version": "0.0.0",
   "description": "Create Labels and Milestones for Multiple repositories",
-  "main": "cli.js",
+  "main": "./lib/index.js",
+  "bin" : {
+    "myapp" : "./cli.js"
+  },
   "dependencies": {
+    "chalk": "^1.1.1",
     "github": "^0.2.4",
     "lodash": "^3.10.1",
+    "minimist": "^1.2.0",
     "q": "^1.4.1"
   },
   "devDependencies": {},
