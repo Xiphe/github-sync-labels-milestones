@@ -2,6 +2,8 @@
   "name": "github-sync-issues-milestones",
   "version": "0.0.0",
   "description": "Sync Labels and Milestones across Multiple repositories",
+  "homepage": "https://github.com/Jimdo/github-sync-issues-milestones",
+  "repository": "Jimdo/github-sync-issues-milestones",
   "main": "./lib/index.js",
   "bin" : {
     "github-sync-issues-milestones" : "./cli.js"
