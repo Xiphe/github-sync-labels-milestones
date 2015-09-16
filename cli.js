@@ -35,7 +35,7 @@ if (argv.help) {
     '',
     'Usage:',
     '',
-    '  ' + chalk.cyan('github-sync-issues-milestones') + ' <options>',
+    '  ' + chalk.cyan('github-sync-labels-milestones') + ' <options>',
     '',
     'Options:',
     '',

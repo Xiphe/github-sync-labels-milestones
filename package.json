@@ -1,12 +1,12 @@
 {
-  "name": "github-sync-issues-milestones",
+  "name": "github-sync-labels-milestones",
   "version": "0.0.1",
   "description": "Sync Labels and Milestones across Multiple repositories",
-  "homepage": "https://github.com/Jimdo/github-sync-issues-milestones",
-  "repository": "Jimdo/github-sync-issues-milestones",
+  "homepage": "https://github.com/Jimdo/github-sync-labels-milestones",
+  "repository": "Jimdo/github-sync-labels-milestones",
   "main": "./lib/index.js",
   "bin" : {
-    "github-sync-issues-milestones" : "./cli.js"
+    "github-sync-labels-milestones" : "./cli.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",

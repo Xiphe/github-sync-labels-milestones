@@ -1,4 +1,4 @@
-github-sync-issues-milestones
+github-sync-labels-milestones
 -----------------------------
 
 Sync Labels and Milestones across Multiple repositories
@@ -6,13 +6,13 @@ Sync Labels and Milestones across Multiple repositories
 Install
 -------
 
-`npm install -g github-sync-issues-milestones`
+`npm install -g github-sync-labels-milestones`
 
 
 CLI usage
 ---------
 
-`github-sync-issues-milestones <options>`
+`github-sync-labels-milestones <options>`
 
 ### Options
 
@@ -47,7 +47,7 @@ an array of configuration objects.
 ```json
 [{
   "repositories": [
-    "Jimdo/github-sync-issues-milestones"
+    "Jimdo/github-sync-labels-milestones"
   ],
   "milestones": [{
     "previousTitles": [
@@ -75,7 +75,7 @@ an array of configuration objects.
   
   - #### `repositories`
 
-    Array of repositories on which the issues and milestones
+    Array of repositories on which the labels and milestones
     should be synchronized
 
   - #### `milestones`
