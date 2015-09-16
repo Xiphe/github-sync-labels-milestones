@@ -82,7 +82,7 @@ logger.verbose = function() {
 };
 
 Q.fcall(function() {
-  return require(path.resolve(__dirname, argv.config));
+  return require(path.resolve(process.cwd(), argv.config));
 }).then(function(config) {
   return require('./lib/index')({
     token: argv.token,
