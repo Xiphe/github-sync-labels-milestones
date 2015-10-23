@@ -20,11 +20,11 @@ CLI usage
     [required] github personal access token
   - `-c, --config`
     [required] path to config file
-  - `-V, --verbose`
+  - `-v, --verbose`
     make output more verbose
   - `-s, --silent`
     oppress output
-  - `-v, --version`
+  - `-V, --version`
     output version
   - `-h, --help`
     output help message
