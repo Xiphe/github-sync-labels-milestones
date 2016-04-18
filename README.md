@@ -80,7 +80,7 @@ an array of configuration objects.
 
   - #### `milestones`
 
-    _optional_ Array of milestones that should be synchronized
+    Array of milestones that should be synchronized
 
   - #### `labels` 
 
