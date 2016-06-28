@@ -47,7 +47,8 @@ an array of configuration objects.
 ```json
 [{
   "repositories": [
-    "Jimdo/github-sync-labels-milestones"
+    "Jimdo/github-sync-labels-milestones",
+    "Xiphe/example"
   ],
   "milestones": [{
     "previousTitles": [
@@ -67,7 +68,12 @@ an array of configuration objects.
   }, {
     "name": "type: feature request",
     "state": "absent"
-  }]
+  }],
+  "options": {
+    "ignoreLabels": [
+      "Xiphe/example"
+    ]
+  }
 }]
 ```
 
@@ -85,6 +91,11 @@ an array of configuration objects.
   - #### `labels` 
 
     _optional_ Array of labels that should be synchronized
+
+  - #### `options`
+
+    _optional_ Options
+
 
 ### milestone declaration shape
 
@@ -133,6 +144,17 @@ an array of configuration objects.
 
     _optional_ Can be `present` or `absent`.   
     Default: `present`  
+
+### Options
+
+  - #### `ignoreLabels`
+
+    _optional_ Array of repositories whose labels should not be touched
+
+
+  - #### `ignoreMilestones`
+
+    _optional_ Array of repositories whose milestones should not be touched
 
 
 LICENSE
