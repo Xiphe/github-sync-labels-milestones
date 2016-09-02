@@ -9,11 +9,11 @@
     "github-sync-labels-milestones" : "./cli.js"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
-    "github": "^0.2.4",
-    "lodash": "^4.12.0",
-    "minimist": "^1.2.0",
-    "q": "^1.4.1"
+    "chalk": "1.1.3",
+    "github": "2.6.0",
+    "lodash": "4.15.0",
+    "minimist": "1.2.0",
+    "q": "1.4.1"
   },
   "devDependencies": {},
   "scripts": {
