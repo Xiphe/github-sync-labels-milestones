@@ -82,7 +82,12 @@ logger.verbose = function() {
 };
 
 Q.fcall(function() {
-  return require(path.resolve(process.cwd(), argv.config));
+  const configPath = path.resolve(process.cwd(), argv.config);
+  if (path.extname(configPath) !== '.json') {
+    throw new Error('config needs to be a json file');
+  }
+
+  return require(configPath);
 }).then(function(config) {
   return require('./lib/index')({
     token: argv.token,
