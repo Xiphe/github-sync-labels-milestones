@@ -17,6 +17,8 @@ var Q = require('q');
 var path = require('path');
 var _ = require('lodash');
 var CONSTANTS = require('./lib/constants');
+var YAML = require('yamljs');
+
 chalk = new chalk.constructor({enabled: argv.color});
 
 function wrt(str) {
@@ -81,14 +83,21 @@ logger.verbose = function() {
   }
 };
 
-Q.fcall(function() {
+function getConfig() {
   const configPath = path.resolve(process.cwd(), argv.config);
-  if (path.extname(configPath) !== '.json') {
-    throw new Error('config needs to be a json file');
-  }
 
-  return require(configPath);
-}).then(function(config) {
+  switch (path.extname(configPath)) {
+    case '.json':
+      return require(configPath);
+    case '.yml':
+    case '.yaml':
+      return YAML.load(configPath);
+    default:
+      throw new Error('config needs to be a .json, .yml or .yaml file');
+  }
+}
+
+Q.fcall(getConfig).then(function(config) {
   return require('./lib/index')({
     token: argv.token,
     log: logger
