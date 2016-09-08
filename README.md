@@ -39,10 +39,10 @@ and ensure [repo] and [public_repo] scopes are activated
 Configuration File
 ------------------
 
-The configuration file needs to be valid JSON and describe
+The configuration file needs to be valid JSON or YAML and describe
 an array of configuration objects.
 
-### Example
+### Example (`config.json`)
 
 ```json
 [{
