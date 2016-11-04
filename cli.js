@@ -41,13 +41,14 @@ if (argv.help) {
     '',
     'Options:',
     '',
-    '  ' + chalk.yellow('-t, --token') + '   [required] github personal access token',
-    '  ' + chalk.yellow('-c, --config') + '  [required] path to config file',
-    '  ' + chalk.yellow('-V, --verbose') + ' make output more verbose',
-    '  ' + chalk.yellow('-s, --silent') + '  oppress output',
-    '  ' + chalk.yellow('-v, --version') + ' output version',
-    '  ' + chalk.yellow('-h, --help') + '    output help message',
-    '  ' + chalk.yellow('--no-color') + '    disable colors',
+    '  ' + chalk.yellow('-t, --token') + '      [required] github personal access token',
+    '  ' + chalk.yellow('-c, --config') + '     [required] path to config file',
+    '  ' + chalk.yellow('-V, --verbose') + '    make output more verbose',
+    '  ' + chalk.yellow('-s, --silent') + '     oppress output',
+    '  ' + chalk.yellow('-v, --version') + '    output version',
+    '  ' + chalk.yellow('-h, --help') + '       output help message',
+    '  ' + chalk.yellow('--no-color') + '       disable colors',
+    '  ' + chalk.yellow('--disable-follow') + ' disable redirects (sometimes causes issues with GitHub API)',
     '',
     chalk.gray('Get a personal access token here: https://github.com/settings/tokens'),
     chalk.gray('[repo] and [public_repo] scopes need to be activated')
@@ -100,7 +101,8 @@ function getConfig() {
 Q.fcall(getConfig).then(function(config) {
   return require('./lib/index')({
     token: argv.token,
-    log: logger
+    log: logger,
+    followRedirects: !argv['disable-follow']
   }, config);
 }).then(function() {
   _.forEach(logs, function(states, type) {
