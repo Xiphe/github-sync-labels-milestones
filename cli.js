@@ -99,11 +99,16 @@ function getConfig() {
 }
 
 Q.fcall(getConfig).then(function(config) {
-  return require('./lib/index')({
-    token: argv.token,
-    log: logger,
-    followRedirects: !argv['disable-follow']
-  }, config);
+  return require('./lib/index')(
+    {
+      token: argv.token,
+      log: logger,
+    },
+    config,
+    {
+      followRedirects: !argv['disable-follow']
+    }
+  );
 }).then(function() {
   _.forEach(logs, function(states, type) {
     wrt(chalk.grey(type + ': '));
