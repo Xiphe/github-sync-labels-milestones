@@ -48,12 +48,16 @@ if (argv.help) {
     '  ' + chalk.yellow('-s, --silent') + '     oppress output',
     '  ' + chalk.yellow('-v, --version') + '    output version',
     '  ' + chalk.yellow('-h, --help') + '       output help message',
-    '  ' + chalk.yellow('--no-color') + '       disable colors',
+    '  ' + chalk.yellow('--host') + '           set github host ' + chalk.cyan('*'),
+    '  ' + chalk.yellow('--path-prefix') + '    set github path prefix ' + chalk.cyan('*'),
+    '  ' + chalk.yellow('--timeout') + '        set github request timeout ' + chalk.cyan('*'),
     '  ' + chalk.yellow('--disable-follow') + ' disable redirects (sometimes causes issues with GitHub API)',
+    '  ' + chalk.yellow('--no-color') + '       disable colors',
     '',
     chalk.gray('Get a personal access token here: https://github.com/settings/tokens'),
-    chalk.gray('[repo] and [public_repo] scopes need to be activated')
-
+    chalk.gray('[repo] and [public_repo] scopes need to be activated'),
+    '',
+    chalk.cyan('*') + ' see https://github.com/mikedeboer/node-github#example',
   ].join('\n') + '\n');
 
   return;

@@ -16,21 +16,28 @@ CLI usage
 
 ### Options
 
-  - `-t, --token`
+  - `-t, --token`  
     [required] github personal access token
-  - `-c, --config`
+  - `-c, --config`  
     [required] path to config file
-  - `-v, --verbose`
+  - `-v, --verbose`  
     make output more verbose
-  - `-s, --silent`
+  - `-s, --silent`  
     oppress output
-  - `-V, --version`
+  - `-V, --version`  
     output version
-  - `-h, --help`
+  - `--host`  
+    set github host (see [node-github](https://github.com/mikedeboer/node-github#example))
+  - `--path-prefix`  
+    set github path prefix (see [node-github](https://github.com/mikedeboer/node-github#example))
+  - `--timeout`  
+    set github request timeout (see [node-github](https://github.com/mikedeboer/node-github#example))
+  - `--disable-follow`  
+    disable redirects (sometimes causes issues with GitHub API)
+  - `-h, --help`  
     output help message
-  - `--no-color`
+  - `--no-color`  
     disable colors
-
 
 Get a personal access token under [settings/tokens](https://github.com/settings/tokens)
 and ensure [repo] and [public_repo] scopes are activated
