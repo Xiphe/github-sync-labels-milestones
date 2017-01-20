@@ -9,7 +9,8 @@ var argv = require('minimist')(process.argv.slice(2), {
     'help': 'h',
     'verbose': 'v',
     'version': 'V',
-    'silent': 's'
+    'silent': 's',
+    'path-prefix': 'pathPrefix'
   }
 });
 var chalk = require('chalk');
@@ -106,7 +107,10 @@ Q.fcall(getConfig).then(function(config) {
     },
     config,
     {
-      followRedirects: !argv['disable-follow']
+      followRedirects: !argv['disable-follow'],
+      host: argv.host,
+      pathPrefix: argv.pathPrefix,
+      timeout: argv.timeout
     }
   );
 }).then(function() {
