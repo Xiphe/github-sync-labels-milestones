@@ -17,7 +17,7 @@ CLI usage
 ### Options
 
   - `-t, --token`  
-    [required] github personal access token
+    [required] [github personal access token with repo access](https://github.com/settings/tokens/new)
   - `-c, --config`  
     [required] path to config file
   - `-v, --verbose`  
