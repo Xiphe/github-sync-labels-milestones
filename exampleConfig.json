@@ -1,0 +1,27 @@
+[
+  {
+    "repositories": [
+      "Xiphe/github-sync-labels-milestones",
+      "Xiphe/jQuery-Merge-for-php-diff"
+    ],
+    "milestones": [
+      {
+        "previousTitles": ["Complete Everything"],
+        "title": "First Release",
+        "state": "open",
+        "description": "Tasks to be completed before release",
+        "due_on": "2022-09-15T17:00:00Z"
+      }
+    ],
+    "labels": [
+      {
+        "previousNames": ["bug"],
+        "name": "type: bug",
+        "color": "ff00ff"
+      },
+      {
+        "name": "question"
+      }
+    ]
+  }
+]
