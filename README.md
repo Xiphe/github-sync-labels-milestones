@@ -115,7 +115,7 @@ an array of configuration objects.
 - #### `due_on`
 
   _optional_ The milestone due date. This is a timestamp in ISO 8601 format:  
-  `YYYY-MM-DDTHH:MM:SSZ`
+  `YYYY-MM-DDTHH:MM:SSZ` (The time of the day is ignored)
 
 ### label declaration shape
 
