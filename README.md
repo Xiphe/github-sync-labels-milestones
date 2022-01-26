@@ -23,9 +23,9 @@ Sync Labels and Milestones across Multiple repositories
 - `-V, --version`  
   output version
 - `--baseUrl`  
-  sset github baseUrl (see [node-github](https://github.com/mikedeboer/node-github#example))
+  sset github baseUrl (see [@octokit/rest](https://octokit.github.io/rest.js/v18#usage))
 - `--timeout`  
-  set github request timeout (see [node-github](https://github.com/mikedeboer/node-github#example))
+  set github request timeout (see [@octokit/rest](https://octokit.github.io/rest.js/v18#usage))
 - `-h, --help`  
   output help message
 - `--no-color`  

@@ -68,8 +68,7 @@ if (argv.help) {
       ),
       chalk.gray('[repo] and [public_repo] scopes need to be activated'),
       '',
-      chalk.cyan('*') +
-        ' see https://github.com/mikedeboer/node-github#example',
+      chalk.cyan('*') + ' see https://octokit.github.io/rest.js/v18#usage',
     ].join('\n') + '\n',
   );
 
