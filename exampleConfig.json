@@ -16,6 +16,7 @@
     "labels": [
       {
         "previousNames": ["bug"],
+        "description": "something went wrong here",
         "name": "type: bug",
         "color": "ff00ff"
       },
