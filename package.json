@@ -9,11 +9,11 @@
     "github-sync-labels-milestones": "./cli.js"
   },
   "dependencies": {
-    "@octokit/plugin-throttling": "3.5.2",
-    "@octokit/rest": "18.12.0",
+    "@octokit/plugin-throttling": "4.3.2",
+    "@octokit/rest": "19.0.5",
     "chalk": "4.1.2",
     "lodash": "4.17.21",
-    "minimist": "1.2.5",
+    "minimist": "1.2.7",
     "q": "1.5.1",
     "yamljs": "0.3.0"
   },
